@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <title>Práctica 7</title>
+
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
+
+    <link
+      rel="stylesheet"
+      href="css/styles.css"
+    />
+  </head>
+
+  <body>
+    <div class="app">
+
+      <!-- Cabecera -->
+      <header class="header">
+        <button
+          class="menu-button"
+          id="menu-button"
+          aria-label="Abrir menú"
+        >
+          ☰
+        </button>
+
+        <h1>Práctica 7</h1>
+      </header>
+
+      
+      <aside
+        class="drawer"
+        id="drawer"
+      >
+        <div class="drawer-title">
+          Menú
+        </div>
+
+        <nav>
+
+          
+          <a
+            href="#"
+            onclick="viewPage('page-sensor-add'); closeMenu(); return false;"
+          >
+            <span class="nav-icon">＋</span>
+            Agregar sensor
+          </a>
+
+          
+          <a
+            href="#"
+            onclick="viewPage('page-sensor-list'); closeMenu(); return false;"
+          >
+            <span class="nav-icon">☷</span>
+            Listado de sensores
+          </a>
+
+        </nav>
+      </aside>
+
+      
+      <div
+        class="overlay"
+        id="overlay"
+        onclick="closeMenu()"
+      ></div>
+
+      
+      <main class="content">
+
+        
+        <section id="page-sensor-list">
+
+          <div class="section-header">
+
+            <div>
+              <h2>Listado de sensores</h2>
+
+              <p class="section-description">
+                Sensores registrados actualmente en el sistema.
+              </p>
+            </div>
+
+            
+            <button
+              class="add-sensor-button"
+              onclick="viewPage('page-sensor-add')"
+            >
+              + Agregar sensor
+            </button>
+
+          </div>
+
+          <ul
+            id="sensor-list"
+            class="sensor-list"
+          ></ul>
+
+        </section>
+
+        
+        <section
+          id="page-sensor-add"
+          style="display: none;"
+        >
+
+          <div class="section-header">
+
+            <div>
+              <h2>Agregar sensor</h2>
+
+              <p class="section-description">
+                Registra un nuevo sensor en el sistema.
+              </p>
+            </div>
+
+            <button
+              class="secondary-button"
+              onclick="viewPage('page-sensor-list')"
+            >
+              Ver listado
+            </button>
+
+          </div>
+
+          <div class="form-container">
+
+            <div class="input-group">
+
+              <input
+                type="text"
+                id="sensor-name"
+                placeholder=" "
+              />
+
+              <label for="sensor-name">
+                Nombre del Sensor
+              </label>
+
+            </div>
+
+            <button
+              id="btn-sensor-add"
+              class="create-button"
+            >
+              Crear
+            </button>
+
+          </div>
+
+          <div
+            id="mensaje-interactivo"
+            class="message"
+          ></div>
+
+        </section>
+
+      </main>
+
+      
+      <footer class="footer">
+        <a href="#">Enlace 3</a>
+        <a href="#">Enlace 4</a>
+      </footer>
+
+    </div>
+
+    <script src="js/script.js"></script>
+
+    <script>
+      const drawer = document.getElementById("drawer");
+      const overlay = document.getElementById("overlay");
+      const menuButton = document.getElementById("menu-button");
+
+      menuButton.addEventListener("click", function () {
+        drawer.classList.add("open");
+        overlay.classList.add("show");
+      });
+
+      function closeMenu() {
+        drawer.classList.remove("open");
+        overlay.classList.remove("show");
+      }
+    </script>
+
+  </body>
+</html>
